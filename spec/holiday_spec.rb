@@ -46,13 +46,6 @@ describe "holiday_supplies_hash" do
     it "adds a supply to memorial day" do
       add_supply_to_memorial_day(holiday_supplies, "Grill")
       expect(memorial_day_supplies).to include("Grill")
-      expect(memorial_day_supplies).not_to include("Table Cloth")
-    end
-
-    it "adds a different supply to memorial day" do
-      add_supply_to_memorial_day(holiday_supplies, "Table Cloth")
-      expect(memorial_day_supplies).to include("Table Cloth")
-      expect(memorial_day_supplies).not_to include("Grill")
     end
   end
 
@@ -69,13 +62,6 @@ describe "holiday_supplies_hash" do
       expect(holiday_supplies[:fall].keys).to include(:columbus_day)
       expect(holiday_supplies[:fall][:columbus_day]).to match_array(columbus_day_supplies)
 
-      expect(holiday_supplies[:winter].keys).not_to include(:valentines_day)
-
-      valentines_day_supplies = ["Cupid Cut-Out", "Candy Hearts"]
-      add_new_holiday_with_supplies(holiday_supplies, :winter, :valentines_day, valentines_day_supplies)
-
-      expect(holiday_supplies[:winter].keys).to include(:valentines_day)
-      expect(holiday_supplies[:winter][:valentines_day]).to match_array(valentines_day_supplies)
     end
   end
 
